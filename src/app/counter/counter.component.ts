@@ -1,3 +1,4 @@
+import { MessageServiceService } from './../message-service.service';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 
@@ -8,23 +9,39 @@ import { EventEmitter } from '@angular/core';
 })
 export class CounterComponent implements OnInit {
 
+ //https://stackoverflow.com/questions/35328652/angular-pass-callback-function-to-child-component-as-input-similar-to-angularjs
   @Input() value: number;
   @Input() id: number;
   @Output() newDeleteEvent = new EventEmitter();
-  constructor() { }
+  @Output() increment = new EventEmitter();
+  @Output() reset = new EventEmitter();
+
+  constructor(private data: MessageServiceService) { }
 
   ngOnInit(): void {
   }
 
-  increment() {
-    this.value = this.value + 1;
+  // increment() {
+  //   this.value = this.value + 1;
+  //   this.changeEvent.emit();
+  // }
+
+  // reset() {
+  //   this.value = 0;
+  //   this.changeEvent.emit();
+  // }
+
+
+  doIncrement(id) {
+    this.increment.emit(id);
   }
 
-  reset() {
-    this.value = 0;
+  doReset(id) {
+    this.reset.emit(id);
   }
 
   delete(id) {
     this.newDeleteEvent.emit(id);
   }
+
 }

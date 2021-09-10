@@ -21,17 +21,27 @@ export class CountersComponent implements OnInit {
   }
 
   doDelete(id) {
-    console.log('delete called with id: ', id)
     this.counters = this.counters.filter(x => x.id != id);
     this.newMessage();
-
   }
 
   resetAll() {
     this.counters.forEach(x => x.value = 0)
+    this.newMessage();
   }
 
   newMessage() {
-    this.data.changeMessage(this.counters.length);
+    console.log("I got called")
+    this.data.changeMessage(this.counters.filter(x=> x.value>0).length);
+  }
+
+  increment(id) {
+    this.counters.map(x=> x.id ===id ? x.value+=1 : x);
+    this.newMessage();
+  }
+
+  reset(id) {
+    this.counters.map(x=> x.id ===id ? x.value = 0: x);
+    this.newMessage();
   }
 }

@@ -1,27 +1,14 @@
 # AngularCounterSampleApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+It serves as a very good example of what's wrong with Angular state managment. 
+Utterly wrong. If you go by standard class properties, counter is maintaing it's,
+while list of counters is being maintained by it, this is problematic it shouldn't allow this architecture. counter should be a controlled component of counters. 
 
-## Development server
+Though angular allows you to have a controlled component it doesn't have this thinking naturally. State is spread all over the application. i.e. you can also
+do state bubbling here but no tutorial will teach you that since the idea of 
+single state flow doesn't apply naturally, also since it allows mutating directly
+and both input and output and two way state changes again it becomes difficult. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+One can make no isue of [()] and bubble the state or use redux for state management
+than again we are going the react way. It doesn't enforce these things. 
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

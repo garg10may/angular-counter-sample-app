@@ -3,9 +3,7 @@
 </div>
 
 <div *ngFor="let counter of counters">
-  <app-counter
-  [value]="counter.value"
-  [id]="counter.id"
-  (newDeleteEvent)="doDelete($event)">
+  <app-counter [value]="counter.value" [id]="counter.id" (newDeleteEvent)="doDelete($event)"
+    (increment)="increment($event)" (reset)="reset($event)">
   </app-counter>
 </div>
