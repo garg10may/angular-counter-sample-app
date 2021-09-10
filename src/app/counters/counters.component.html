@@ -1,0 +1,11 @@
+<div>
+  <button style="margin: 10px;" (click)="resetAll()">Global Reset</button>
+</div>
+
+<div *ngFor="let counter of counters">
+  <app-counter
+  [value]="counter.value"
+  [id]="counter.id"
+  (newDeleteEvent)="doDelete($event)">
+  </app-counter>
+</div>
