@@ -16,7 +16,7 @@ export class CounterComponent implements OnInit {
   @Output() increment = new EventEmitter();
   @Output() reset = new EventEmitter();
 
-  constructor(private data: MessageServiceService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
